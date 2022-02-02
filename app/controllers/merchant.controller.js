@@ -8,7 +8,6 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Tutorial
   const merchant = new Merchant({
     merchant_name: req.body.merchant_name,
     user_name: req.body.user_name,
@@ -21,7 +20,6 @@ exports.create = (req, res) => {
     used_referral_code: req.body.used_referral_code,
   });
 
-  // Save Tutorial in the database
   merchant
     .save(merchant)
     .then((data) => {

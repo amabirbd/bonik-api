@@ -8,14 +8,16 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Tutorial
+  const fileName = req.file.filename;
+  const basePath = `${req.protocol}://${req.get("host")}/public/upload/`;
+
   const shop = new Shop({
     merchant_id: req.body.merchant_name,
     shop_name: req.body.shop_name,
     shop_category: req.body.shop_category,
     trade_license_number: req.body.trade_license_number,
     age_of_shop: req.body.age_of_shop,
-    shop_image: req.body.shop_image,
+    shop_image: `${basePath}${fileName}`,
   });
 
   shop
